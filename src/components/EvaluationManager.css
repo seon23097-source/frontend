@@ -1,0 +1,219 @@
+.evaluation-manager {
+  animation: fadeIn 0.3s ease;
+}
+
+.evaluation-loading,
+.evaluation-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  gap: 20px;
+}
+
+.evaluation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.evaluation-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.category-info {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.evaluation-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.evaluation-table-container {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: auto;
+  max-height: calc(100vh - 280px);
+}
+
+.evaluation-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+}
+
+.evaluation-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--primary);
+}
+
+.evaluation-table th {
+  padding: 16px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: white;
+  border-bottom: 2px solid var(--primary-dark);
+  white-space: nowrap;
+}
+
+.th-sticky {
+  position: sticky;
+  left: 0;
+  z-index: 11;
+  background: var(--primary);
+}
+
+.th-sticky:nth-child(2) {
+  left: 120px;
+}
+
+.evaluation-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-light);
+  transition: var(--transition);
+}
+
+.td-sticky {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background: var(--bg-primary);
+}
+
+.td-sticky:nth-child(2) {
+  left: 120px;
+}
+
+.student-name-cell {
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.student-name-cell:hover {
+  background: var(--bg-hover);
+  color: var(--primary);
+}
+
+.average-cell {
+  font-weight: 600;
+  color: var(--primary);
+  text-align: center;
+  min-width: 80px;
+}
+
+.score-cell {
+  text-align: center;
+  cursor: pointer;
+  min-width: 100px;
+  position: relative;
+}
+
+.score-cell:hover {
+  background: var(--bg-hover);
+}
+
+.max-score {
+  background: rgba(74, 157, 95, 0.1);
+  color: var(--success);
+  font-weight: 600;
+}
+
+.min-score {
+  background: rgba(214, 93, 93, 0.1);
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.score-input {
+  width: 80px;
+  padding: 6px 8px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.score-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(44, 95, 124, 0.2);
+}
+
+.date-input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.date-input:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.evaluation-table tr:hover td {
+  background: var(--bg-hover);
+}
+
+.evaluation-table tr:hover .td-sticky {
+  background: var(--bg-hover);
+}
+
+@media (max-width: 768px) {
+  .evaluation-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .evaluation-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .evaluation-actions button {
+    width: 100%;
+  }
+
+  .evaluation-table {
+    font-size: 12px;
+  }
+
+  .evaluation-table th,
+  .evaluation-table td {
+    padding: 8px 6px;
+  }
+
+  .student-name-cell {
+    min-width: 100px;
+  }
+
+  .score-cell {
+    min-width: 80px;
+  }
+}
