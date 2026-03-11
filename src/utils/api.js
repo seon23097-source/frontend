@@ -1,4 +1,4 @@
-const API_BASE = 'https://port-0-backend-mlko1twcac9b9d20.sel3.cloudtype.app/api';
+const API_BASE = 'https://class.looool.xyz/api';
 
 // 토큰 저장/불러오기
 export const saveToken = (token) => {

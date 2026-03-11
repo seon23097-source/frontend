@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://port-0-backend-mlko1twcac9b9d20.sel3.cloudtype.app',
+        target: 'https://class.looool.xyz',
         changeOrigin: true
       }
     }
