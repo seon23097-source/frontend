@@ -45,11 +45,11 @@ export const authAPI = {
   checkSetup: () => apiCall('/auth/check'),
   setup: (password) => apiCall('/auth/setup', {
     method: 'POST',
-    body: JSON.stringify({ password }),
+    body: JSON.stringify({ username, password }),
   }),
-  login: (password) => apiCall('/auth/login', {
+  login: (username, password) => apiCall('/auth/login', {
     method: 'POST',
-    body: JSON.stringify({ password }),
+    body: JSON.stringify({ username, password }),
   }),
 };
 
