@@ -43,13 +43,13 @@ function StudentDetail({ student, categories, onClose }) {
   const getLineChartData = () => {
     // 날짜별로 그룹화
     const dateMap = {};
-    evaluations.forEach(eval => {
-      if (!dateMap[eval.evaluation_date]) {
-        dateMap[eval.evaluation_date] = { date: eval.evaluation_date };
+    evaluations.forEach(evalItem => {
+      if (!dateMap[evalItem.evaluation_date]) {
+        dateMap[evalItem.evaluation_date] = { date: evalItem.evaluation_date };
       }
       // 백분율로 변환
-      const percentage = (parseFloat(eval.score) / eval.max_score) * 100;
-      dateMap[eval.evaluation_date][eval.category_name] = percentage;
+      const percentage = (parseFloat(evalItem.score) / evalItem.max_score) * 100;
+      dateMap[evalItem.evaluation_date][evalItem.category_name] = percentage;
     });
 
     return Object.values(dateMap).sort((a, b) => 
@@ -62,21 +62,21 @@ function StudentDetail({ student, categories, onClose }) {
     const categoryData = {};
 
     // 카테고리별로 데이터 수집
-    evaluations.forEach(eval => {
-      if (!selectedCategories.includes(eval.category_id)) return;
+    evaluations.forEach(evalItem => {
+      if (!selectedCategories.includes(evalItem.category_id)) return;
 
-      if (!categoryData[eval.category_name]) {
-        categoryData[eval.category_name] = {
-          category: eval.category_name,
+      if (!categoryData[evalItem.category_name]) {
+        categoryData[evalItem.category_name] = {
+          category: evalItem.category_name,
           scores: []
         };
       }
 
       // 백분율로 변환하여 저장
-      const percentage = (parseFloat(eval.score) / eval.max_score) * 100;
-      categoryData[eval.category_name].scores.push({
+      const percentage = (parseFloat(evalItem.score) / evalItem.max_score) * 100;
+      categoryData[evalItem.category_name].scores.push({
         value: percentage,
-        date: eval.evaluation_date
+        date: evalItem.evaluation_date
       });
     });
 
